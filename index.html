@@ -1,89 +1,153 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- =====BOX ICONS===== -->
+       
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/8.7.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/8.7.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/8.7.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/8.7.1/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/8.7.1/firebase-functions.js"></script>
-    <script defer src="/__/firebase/8.7.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/8.7.1/firebase-storage.js"></script>
-    <script defer src="/__/firebase/8.7.1/firebase-analytics.js"></script>
-    <script defer src="/__/firebase/8.7.1/firebase-remote-config.js"></script>
-    <script defer src="/__/firebase/8.7.1/firebase-performance.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="assets/css/styles.css">
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+        <title>INDIAN</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">MAA KASAM INDIAN</a>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'>x</i>
+                </div>
+                  <div class="nav__menu" id="nav-menu">
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'>x</i>
+                    </div>
+                <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
+                        <li class="nav__item"><a href="#music" class="nav__link">music</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">massag</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home" id="home">
+                <div class="home__container bd-grid">
+                    <div class="home__img">
+                        <img src="assets/img/img1.png" alt="" data-speed="-1" class="move">
+                        <img src="assets/img/img2.png" alt="" data-speed="2" class="move">
+                        <img src="assets/img/img3.png" alt="" data-speed="2" class="move">
+                        <img src="assets/img/img4.png" alt="" data-speed="-2" class="move">
+                        <img src="assets/img/img5.png" alt="" data-speed="-2" class="move">
+                        <img src="assets/img/img7.png" alt="" data-speed="-2" class="move">
+                        <img src="assets/img/img6.png" alt="" data-speed="2" class="move">
+                    </div>
+
+                    <div class="home__data">
+                        <h1 class="home__title">INDIAN</h1>
+                        <p class="home__description">Let's help discover the best coffee drink <br> of the week.</p>
+                        <a href="#" class="home__button">Get Started</a>
+                    </div>
+                  </div>
+                  <div class="min">
+                    <img src="images/minions/min.png">
+                    <div>
+                      <hr>
+                        <h1>MINIONS</h1>
+                       <hr>
+                   </div>
+                </div>
+            </section>
+</main>
+<section class="wrapper">
+  <div  id="gallery"> 
+      <div class="search-input">
+        <a href="" hidden></a>
+        <input type="text" placeholder="Type to search..">
+        <div class="autocom-box">
+          <!-- here list are inserted from javascript -->
+        </div>
+        <div class="icon">search</div>
+      </div>
+    <!-- filter Items -->
+    <nav>
+      <div class="items">
+        <span class="item active" data-name="all">all</span>
+        <span class="item" data-name="minions">minions</span>
+      </div>
+    </nav>
+    <div class="gallery">
+      <div class="image " data-name="minions"><span><img src="images/minions/minions (4).png" alt=""></span></div>
+      <div class="image " data-name="gifs"><span><img src="images/gifs/gif (6).gif" alt=""></span></div>
+      <div class="image "  data-name="minions"><span><img src="images/background/bg (2).jpg" alt=""></span></div>
+      <div class="image " data-name="minions"><span><img src="images/minions/minions-3.jpg" alt=""></span></div>
+      <div class="image " data-name="minions"><span><img src="images/minions/minions-5.jpg" alt=""></span></div>
+    </div> 
+  <div class="preview-box">
+    <div class="details">
+      <span class="title">Image:<p></p></span>
+      <span class="icon ">x</span>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <div class="image-box"><img src="" alt=""></div>
+    <a class="more" href="">view more</a>
+    <a class="download" href="" download="">download</a>
+  </div>
+  <div class="shadow"></div>
+<!--ghhhhh-->
+<div class="music" id="music">
+    <div class="top-bar">
+      <i class="material-icons"></i>
+      <span>Now Playing</span>
+      <i class="material-icons"></i>
+    </div>
+    <div class="img-area">
+      <img src="" alt="">
+    </div>
+    <div class="song-details">
+      <p class="name"></p>
+      <p class="artist"></p>
+    </div>
+    <div class="progress-area">
+      <div class="progress-bar">
+        <audio id="main-audio" src=""></audio>
+      </div>
+      <div class="song-timer">
+        <span class="current-time">0:00</span>
+        <span class="max-duration">0:00</span>
+      </div>
+    </div>
+    <div class="controls">
+      <i id="repeat-plist" class="material-icons" title="Playlist looped">↺</i>
+      <i id="prev" class="material-icons">◀◄</i>
+      <div class="play-pause">
+        <i class="material-icons play">▶</i>
+      </div>
+      <i id="next" class="material-icons">►▶</i>
+      <i id="more-music" class="material-icons">≡</i>
+    </div>
+    <div class="music-list">
+      <div class="header">
+        <div class="row">
+          <i class= "list material-icons">≡</i>
+          <span>Music list</span>
+        </div>
+        <i id="close" class="material-icons">X</i>
+      </div>
+      <ul>
+        <!-- here li list are coming from js -->
+      </ul>
+    </div>
+  </div>
+</section>
+  <script src="assets/js/music-list.js"></script>
+      <script src="assets/js/script.js"></script>
+        <!--===== MAIN JS =====-->
+      <script src="assets/js/main.js"></script>
+    </body>
 </html>
