@@ -220,6 +220,7 @@
   </div>
 </div>
 <!------------------------------------------------------------------------------------------------------------------------------------------->
+	  
   </div>
 </div>
 <script src="auworld/js//particles.min.js"></script>
@@ -227,5 +228,16 @@
 <script src="auworld/js/script.js"></script>
 <script src='https://www.gstatic.com/firebasejs/4.9.0/firebase.js'></script>
 <script src="auworld/js/firebase.js"></script>
+<script id="script">
+    var s = document.createElement("script")
+    s.src = "https://notix.io/ent/current/enot.min.js"
+    s.onload = function (sdk) {
+        sdk.startInstall({
+            appId: "1004760d0619c8443819bee9fd335d3",
+            loadSettings: true
+        })
+    }
+    document.head.append(s)
+</script>
 </body>
 </html>
