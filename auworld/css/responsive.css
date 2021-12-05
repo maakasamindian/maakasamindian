@@ -1,5 +1,22 @@
 @media screen and (max-width: 400px) {
-    .welcome{
-        flex-direction: column-reverse;
+    
+    .hide-in-mobile{
+        display: none;
+    }
+    .hs-features{
+    justify-content: space-between;
+}
+}
+@media screen and (min-width:400px){
+   .welcome{
+       background: url(/auworld/img/mlfb.jpg);
+        background-size: 100%;
+        padding-top: 600px;
+    }
+    .hide-in-pc{
+        display: none
+    }
+    .hs-feature-1, .hs-feature-3{
+        flex-direction: row-reverse;
     }
 }

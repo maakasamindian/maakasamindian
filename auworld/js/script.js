@@ -1,19 +1,26 @@
-const header = document.querySelectorAll('.card-header img');
-const title = document.querySelectorAll('.card-title');
-const excerpt = document.querySelectorAll('.card-excerpt span');
-const profile_img = document.querySelectorAll('.profile-img');
-const name = document.querySelectorAll('.name');
-const date = document.querySelectorAll('.date');
-const card = document.querySelectorAll('.card-content');
-const postl = document.querySelectorAll('.postl');
-const nav2 = document.getElementById('ua-2');
-const inpu = document.querySelectorAll('.in-pu');
-const anim = document.getElementById('anim');
-const nav1 = document.getElementById('ua-3');
-const nav4 = document.getElementById('ua-1');
-const setting = document.querySelector('.setting');
-const seton = document.querySelector('.seton')
-const setoff = document.querySelector('.setoff')
+const header = document.querySelectorAll('.card-header img'),
+ title = document.querySelectorAll('.card-title'),
+ excerpt = document.querySelectorAll('.card-excerpt span'),
+ profile_img = document.querySelectorAll('.profile-img'),
+ name = document.querySelectorAll('.name'),
+ date = document.querySelectorAll('.date'),
+ card = document.querySelectorAll('.card-content'),
+ postl = document.querySelectorAll('.postl'),
+ nav2 = document.getElementById('ua-2'),
+ inpu = document.querySelectorAll('.in-pu'),
+ nav1 = document.getElementById('ua-3'),
+ nav4 = document.getElementById('ua-1'),
+ setting = document.querySelector('.setting'),
+ seton = document.querySelector('.seton'),
+ setoff = document.querySelector('.setoff'),
+ loader = document.querySelector('.loader'),
+ topost = document.querySelector('.f1_ab'),
+ toabout = document.querySelector('.f2_ab')
+ r1 = document.querySelector('#nav-1'),
+ r2 = document.querySelector('#nav-2'),
+ r3 = document.querySelector('#nav-3'),
+ r4 = document.querySelector('#nav-4');
+      
 
 const animated_bgs = document.querySelectorAll('.animated-bg');
 const animated_bg_texts = document.querySelectorAll('.animated-bg');
@@ -43,16 +50,29 @@ nav2.onclick = ()=>{
   setting.classList.add('hide');
   setting.classList.remove('display');
 }
+
 nav1.onclick = ()=>{
   inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
   setting.classList.add('hide');
   setting.classList.remove('display');
 }
+function greet() {
+  alert('welcome');
+}
+function hide() {
+  loader.classList.add('hide');
+}
 
+topost.onclick = ()=> {
+  setTimeout(getData, 2500);
+}
+toabout.onclick = ()=>{
+  inpu.forEach(bgs => { bgs.classList.add('in-pua') });
+}
 nav4.onclick = ()=>{
-  inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
-  setting.classList.add('hide');
-  setting.classList.remove('display');
+inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
+setting.classList.add('hide');
+setting.classList.remove('display');
 }
 seton.onclick = ()=>{
   setting.classList.add('display');
@@ -82,8 +102,12 @@ window.onload = ()=>{ //after window loaded
       });
     }
   }
+  loader.style.display = 'flex';
+  setTimeout(hide,4800);
+  document.querySelector('#app').style.display ='';
+  document.querySelector('.fh').style.display ='none';
+  Particles.init({selector: ".hsw"});
 }
-
 var myDate = new Date();
     var hrs = myDate.getHours();
 
@@ -96,4 +120,20 @@ var myDate = new Date();
     else if (hrs >= 17 && hrs <= 24)
         greet = 'Hlw,<br><p class="greet">Good Evening<p>';
 
-document.getElementById('lblGreetings').innerHTML ='<h1>' + greet +'<p class="intro">welcome to UAworld. I hope<br>you are fine and enjoying<br>your life with happiness</p><h1>'
+document.getElementById('lblGreetings').innerHTML ='<h1>' + greet +'<h1>'
+
+var particles = Particles.init({
+  selector: ".hsw",
+  color: ["#00ffe7", "#add8e6", "#00b4ef"],
+  connectParticles: true,
+   responsive: [
+    {
+      breakpoint: 800,
+      options: {
+        color: ["#00ffe7", "#add8e6", "#00b4ef"],
+        maxParticles: 40,
+        connectParticles: true
+      }
+    }
+  ]
+});
