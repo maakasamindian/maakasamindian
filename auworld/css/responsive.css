@@ -19,4 +19,7 @@
     .hs-feature-1, .hs-feature-3{
         flex-direction: row-reverse;
     }
+    .contact-form{
+        width: 70vh;
+    }
 }

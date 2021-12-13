@@ -43,21 +43,20 @@ anim.onclick = ()=>{
    inpu.forEach(bgs => { bgs.classList.add('in-pua') });
    setting.classList.add('hide');
   setting.classList.remove('display');
- }
+}
 nav2.onclick = ()=>{
   inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
   setTimeout(getData, 2500);
   setting.classList.add('hide');
   setting.classList.remove('display');
 }
-
 nav1.onclick = ()=>{
   inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
   setting.classList.add('hide');
   setting.classList.remove('display');
 }
-function greet() {
-  alert('welcome');
+function alertrc() {
+  alert('right click is disable!!');
 }
 function hide() {
   loader.classList.add('hide');
@@ -108,6 +107,13 @@ window.onload = ()=>{ //after window loaded
   document.querySelector('.fh').style.display ='none';
   Particles.init({selector: ".hsw"});
 }
+function onContextMenu(e){
+    e.preventDefault();
+    document.addEventListener('contextmenu', onContextMenu, false);
+    setTimeout(alertrc, 0);
+}
+document.addEventListener('contextmenu', onContextMenu, false);
+
 var myDate = new Date();
     var hrs = myDate.getHours();
 
