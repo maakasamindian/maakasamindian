@@ -9,17 +9,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="auworld/css/style.css">
     <link rel="stylesheet" href="auworld/css/responsive.css">
+    <link rel="stylesheet" href="auworld/css/aos.css">
     <link rel="icon" type="image/png" href="auworld/img/au.png">
 </head>
-<body >
-  <h1 class="fh" style="color: #002d35;">fetching your network</h1>
+<body>
+  <h2 class="fh" style="color: #002d35;"></h2>
+  <style>
+    .fh{
+  display:block;
+}
+.fh::before{
+  display:block;
+  animation: beforeload 4s ease infinite;
+  content:"";
+}
+@keyframes beforeload{
+  0%{content: "fetching your network 😇";}
+  33%{content: "loading 'AU'😍";}
+  66%{content: "little bit more😁";}
+  100%{content: "fetching your network 😇";}
+}
+  </style>
 <input type="radio" name="choice" id="nav-1" checked>
 <input type="radio" name="choice" id="nav-2">
 <input type="radio" name="choice" id="nav-3">
 <input type="radio" name="choice" id="nav-4">
+<input type="checkbox" name="choice" id="darkmode">
 <div class="loader">
   <svg  viewBox="0 0 500 500"><path style="fill: #ff0000;stroke: none;" d="M256,448a32,32,0,0,1-18-5.57c-78.59-53.35-112.62-89.93-131.39-112.8-40-48.75-59.15-98.8-58.61-153C48.63,114.52,98.46,64,159.08,64c44.08,0,74.61,24.83,92.39,45.51a6,6,0,0,0,9.06,0C278.31,88.81,308.84,64,352.92,64,413.54,64,463.37,114.52,464,176.64c.54,54.21-18.63,104.26-58.61,153-18.77,22.87-52.8,59.45-131.39,112.8A32,32,0,0,1,256,448Z"/></svg>
-  <img src="auworld/img/au.png">
+  <img alt="" src="auworld/img/au.png">
 </div>
 <div id="app" style="display: none;">
   <nav class="ui-nav">
@@ -50,30 +68,45 @@
   </nav>
 <!-------------------------------------------------------------->
 <div class="setting">
-  <div class="setoff" style="top: 20px;left: 10px;display: flex;align-items: center;"><svg width="20" height="20" viewBox="0 0 512 512"><path d="M48,256c0,114.87,93.13,208,208,208s208-93.13,208-208S370.87,48,256,48,48,141.13,48,256Zm224-80.09L208.42,240H358v32H208.42L272,336.09,249.3,358.63,147.46,256,249.3,153.37Z" style="fill: white;"/></svg><p style="margin:0 0 0 10px;color: cyan;font-size: larger;">setting</p></div>
-  <nav class="setme">
-    <div></div>
-    <div></div>
-    <div></div>
-  </nav>
+  <div class="setoff" style="margin:20px 0px 0px 10px;display: flex;align-items: center;"><svg width="20" height="20" viewBox="0 0 512 512"><path d="M48,256c0,114.87,93.13,208,208,208s208-93.13,208-208S370.87,48,256,48,48,141.13,48,256Zm224-80.09L208.42,240H358v32H208.42L272,336.09,249.3,358.63,147.46,256,249.3,153.37Z" style="fill: white;"/></svg><p style="margin:0 0 0 10px;color: cyan;font-size: larger;">setting</p></div>
+  <ul class="setme">
+    <li>
+      <p>DARK MODE</p>
+    <label for="darkmode" class="toogle-base">
+      <div class="toogle-switch dm"></div>
+    </label>
+  </li>
+  <li>
+      <p>not yet</p>
+    <label for="setopt" class="toogle-base">
+      <div class="toogle-switch va"></div>
+    </label>
+  </li>
+  <li>
+      <p>not yet</p>
+    <label for="setopt" class="toogle-base">
+      <div class="toogle-switch"></div>
+    </label>
+  </li>
+</ul>
 </div>
 <!-------------------------------------------------------------->
   <div class="ui-pages">
 <!--------------------------------------------------------------------------------------->
-<div class="ui-page" data-page="1">
+<div class="ui-page" data-page="1" style="scroll-behavior: smooth;">
   <main id="home">
   <header class="top">
-    <div class="seton"><svg width="20" height="20" viewBox="0 0 512 512"><circle cx="256" cy="256" r="48"/><path d="M470.39,300l-.47-.38-31.56-24.75a16.11,16.11,0,0,1-6.1-13.33l0-11.56a16,16,0,0,1,6.11-13.22L469.92,212l.47-.38a26.68,26.68,0,0,0,5.9-34.06l-42.71-73.9a1.59,1.59,0,0,1-.13-.22A26.86,26.86,0,0,0,401,92.14l-.35.13L363.55,107.2a15.94,15.94,0,0,1-14.47-1.29q-4.92-3.1-10-5.86a15.94,15.94,0,0,1-8.19-11.82L325.3,48.64l-.12-.72A27.22,27.22,0,0,0,298.76,26H213.24a26.92,26.92,0,0,0-26.45,22.39l-.09.56-5.57,39.67A16,16,0,0,1,173,100.44c-3.42,1.84-6.76,3.79-10,5.82a15.92,15.92,0,0,1-14.43,1.27l-37.13-15-.35-.14a26.87,26.87,0,0,0-32.48,11.34l-.13.22L35.71,177.9A26.71,26.71,0,0,0,41.61,212l.47.38,31.56,24.75a16.11,16.11,0,0,1,6.1,13.33l0,11.56a16,16,0,0,1-6.11,13.22L42.08,300l-.47.38a26.68,26.68,0,0,0-5.9,34.06l42.71,73.9a1.59,1.59,0,0,1,.13.22A26.86,26.86,0,0,0,111,419.86l.35-.13,37.07-14.93a15.94,15.94,0,0,1,14.47,1.29q4.92,3.11,10,5.86a15.94,15.94,0,0,1,8.19,11.82l5.56,39.59.12.72A27.22,27.22,0,0,0,213.24,486h85.52a26.92,26.92,0,0,0,26.45-22.39l.09-.56,5.57-39.67a16,16,0,0,1,8.18-11.82c3.42-1.84,6.76-3.79,10-5.82a15.92,15.92,0,0,1,14.43-1.27l37.13,14.95.35.14a26.85,26.85,0,0,0,32.48-11.34,2.53,2.53,0,0,1,.13-.22l42.71-73.89A26.7,26.7,0,0,0,470.39,300ZM335.91,259.76a80,80,0,1,1-83.66-83.67A80.21,80.21,0,0,1,335.91,259.76Z"/></svg></div>
+    <div class="seton" ><svg width="20" height="20" viewBox="0 0 512 512"><circle cx="256" cy="256" r="48"/><path d="M470.39,300l-.47-.38-31.56-24.75a16.11,16.11,0,0,1-6.1-13.33l0-11.56a16,16,0,0,1,6.11-13.22L469.92,212l.47-.38a26.68,26.68,0,0,0,5.9-34.06l-42.71-73.9a1.59,1.59,0,0,1-.13-.22A26.86,26.86,0,0,0,401,92.14l-.35.13L363.55,107.2a15.94,15.94,0,0,1-14.47-1.29q-4.92-3.1-10-5.86a15.94,15.94,0,0,1-8.19-11.82L325.3,48.64l-.12-.72A27.22,27.22,0,0,0,298.76,26H213.24a26.92,26.92,0,0,0-26.45,22.39l-.09.56-5.57,39.67A16,16,0,0,1,173,100.44c-3.42,1.84-6.76,3.79-10,5.82a15.92,15.92,0,0,1-14.43,1.27l-37.13-15-.35-.14a26.87,26.87,0,0,0-32.48,11.34l-.13.22L35.71,177.9A26.71,26.71,0,0,0,41.61,212l.47.38,31.56,24.75a16.11,16.11,0,0,1,6.1,13.33l0,11.56a16,16,0,0,1-6.11,13.22L42.08,300l-.47.38a26.68,26.68,0,0,0-5.9,34.06l42.71,73.9a1.59,1.59,0,0,1,.13.22A26.86,26.86,0,0,0,111,419.86l.35-.13,37.07-14.93a15.94,15.94,0,0,1,14.47,1.29q4.92,3.11,10,5.86a15.94,15.94,0,0,1,8.19,11.82l5.56,39.59.12.72A27.22,27.22,0,0,0,213.24,486h85.52a26.92,26.92,0,0,0,26.45-22.39l.09-.56,5.57-39.67a16,16,0,0,1,8.18-11.82c3.42-1.84,6.76-3.79,10-5.82a15.92,15.92,0,0,1,14.43-1.27l37.13,14.95.35.14a26.85,26.85,0,0,0,32.48-11.34,2.53,2.53,0,0,1,.13-.22l42.71-73.89A26.7,26.7,0,0,0,470.39,300ZM335.91,259.76a80,80,0,1,1-83.66-83.67A80.21,80.21,0,0,1,335.91,259.76Z"/></svg></div>
     <img class="homedp"src="auworld/img/au.png" alt="dp" style="background: radial-gradient(circle at top right, rgb(2, 67, 83), rgb(0, 41, 59));">
   </header>
   <img src="auworld/img/minions (10).jpg" alt="group of minions" class="home-img hide-in-pc">
   <img src="auworld/img/mlfb.jpg" alt="moon light in mosque from window" class="home-img hide-in-mobile">
   <label id="lblGreetings"></label>
-  <a href="#nav-3" class="action-btn"><img src="auworld/img/Hand.gif" alt="hand waving"></a>
+  <a href="#acbtn" class="action-btn"><img src="auworld/img/Hand.gif" alt="hand waving"></a>
 </main>
-  <section class="home-section">
+  <section class="home-section" id="acbtn">
    <div class="hs-welcome">
-     <canvas class="hsw" style="inset: 0px; position: absolute; width: 100%; height: 100%;" width="269" height="339"></canvas>
+     <canvas class="hsw"  style="inset: 0px; position: absolute; width: 100%; height: 100%;" width="269" height="339"></canvas>
        <img src="auworld/img/minions (33).png" alt="" class="home__img">
        <div class="home__text">
          <p>WELCOME</p>
@@ -124,66 +157,65 @@
         </div>
       </nav>
     </div>
-
 <div class="post">
 <div class="card" data-name="minions">
 	<div class="card-header animated-bg" >
-		<img src="auworld/img/minions (33).png" alt="minons" />
+		<img src="auworld/img/minions (33).png" alt="minons">
 	</div>
 	<div class="card-content" >
   <div style="color: black;justify-content: space-between">
-		<h3 class="card-title animated-bg animated-bg-text" >Minions</h3>
+		<h3 class="card-title animated-bg animated-bg-text dmwhite" >Minions</h3>
   </div>
      <div id="miniongroup" class="counter counter1 postl animated-bg animated-bg-text" >
       <ul>
         <li data-action="like">
           <span class="icon"><svg width="40" height="40" viewBox="0 0 512 512"><path d="M256,360a16,16,0,0,1-9-2.78c-39.3-26.68-56.32-45-65.7-56.41-20-24.37-29.58-49.4-29.3-76.5.31-31.06,25.22-56.33,55.53-56.33,20.4,0,35,10.63,44.1,20.41a6,6,0,0,0,8.72,0c9.11-9.78,23.7-20.41,44.1-20.41,30.31,0,55.22,25.27,55.53,56.33.28,27.1-9.31,52.13-29.3,76.5-9.38,11.44-26.4,29.73-65.7,56.41A16,16,0,0,1,256,360Z"/></svg></span>
-          <span class="count">wait</span>
+          <span class="count dmwhite">wait</span>
         </li>
       </ul>
     </div>
 		<p class="card-excerpt" style=" margin-top: 0px;" >
-			<span class="animated-bg animated-bg-text">actually I love minions.</span>
-      <span class="animated-bg animated-bg-text"></span>
+			<span class="animated-bg animated-bg-text dmwhite">actually I love minions.</span>
+      <span class="animated-bg animated-bg-text dmwhite"></span>
     </p>
 		<div class="author">
 			<div class="profile-img animated-bg" >
 				&nbsp;
 			</div>
 			<div class="author-info">
-				<strong class="animated-bg animated-bg-text name"  style="color: #013030;">&nbsp;</strong>
-				<small class="animated-bg animated-bg-text date" style="content-visibility: hidden;">10 oct 2019</small>
+				<strong class="animated-bg animated-bg-text name dmwhite"  style="color: #026992;">&nbsp;</strong>
+				<small class="animated-bg animated-bg-text date dmwhite" style="content-visibility: hidden;">10 oct 2019</small>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="card" data-name="emoji">
 	<div class="card-header animated-bg" >
-		<img src="auworld/post/cry for___.png" alt="emoji crying" />
+		<img src="auworld/post/img/cry for___.png" alt="emoji crying" />
 	</div>
 	<div class="card-content" >
   <div style="color: black;justify-content: space-between">
-		<h3 class="card-title animated-bg animated-bg-text">Minions</h3>
+		<h3 class="card-title animated-bg animated-bg-text dmwhite">Minions</h3>
   </div>
      <div id="crying emoji" class="counter counter1 postl animated-bg animated-bg-text" >
        <ul>
         <li data-action="like">
           <span class="icon"><svg width="40" height="40" viewBox="0 0 512 512"><path d="M256,360a16,16,0,0,1-9-2.78c-39.3-26.68-56.32-45-65.7-56.41-20-24.37-29.58-49.4-29.3-76.5.31-31.06,25.22-56.33,55.53-56.33,20.4,0,35,10.63,44.1,20.41a6,6,0,0,0,8.72,0c9.11-9.78,23.7-20.41,44.1-20.41,30.31,0,55.22,25.27,55.53,56.33.28,27.1-9.31,52.13-29.3,76.5-9.38,11.44-26.4,29.73-65.7,56.41A16,16,0,0,1,256,360Z"/></svg></span>
-          <span class="count">wait</span>
+          <span class="count dmwhite">wait</span>
         </li>
       </ul>
     </div>
 		<p class="card-excerpt" style=" margin-top: 0px;">
-			<span class="animated-bg animated-bg-text">i can't live without</span>
-      <span class="animated-bg animated-bg-text"></span>
+			<span class="animated-bg animated-bg-text dmwhite">i can't live without</span>
+      <span class="animated-bg animated-bg-text dmwhite"></span>
     </p>
 		<div class="author">
 			<div class="profile-img animated-bg" >
 				&nbsp;
 			</div>
 			<div class="author-info">
-				<strong class="animated-bg animated-bg-text name"  style="color: #013030;">&nbsp;</strong>
-				<small class="animated-bg animated-bg-text date" style="content-visibility: hidden;">10 oct 2019</small>
+				<strong class="animated-bg animated-bg-text name dmwhite"  style="color: #02709b;">&nbsp;</strong>
+				<small class="animated-bg animated-bg-text date dmwhite" style="content-visibility: hidden;">10 oct 2019</small>
 			</div>
 		</div>
 	</div>
@@ -213,7 +245,7 @@
   <!-- bit of a bio; who are you? -->
   <div class="profile-bio in-pu">
 
-    <p style="font-size:20px;">
+    <p style="font-size:20px;max-width:300px;">
       Hello, this's unknown. I hope you are fine and enjoying your life with happiness.
     </p>
 
@@ -255,17 +287,30 @@
 <div class="ui-page" data-page="4">
   <div class="contact">
     <div></div>
-    <form class="contact-form" >
-      <input class="contact-form-text" name="name" type="text" placeholder="name please" required autocomplete="off">
-      <input class="contact-form-text" name="email" type="email" placeholder="email please" required autocomplete="off">
-      <input class="contact-form-text" name="more about user" type="text" placeholder="more about you/feedback" required autocomplete="off">
-      <input class="contact-form-submit" type="submit">
+    <form class="contact-fm" >
+      <p>please fill correct information</p>
+      <input class="contact-form name" name="name" type="text" placeholder="name please" required autocomplete="off">
+      <input class="contact-form email" name="email" type="email" placeholder="email please" required autocomplete="off">
+      <textarea class="contact-form text" name="message of the user" type="text" required placeholder="your message"></textarea>
+      <input class="contact-form-submit"type="submit">
     </form>
   </div>
-</div>
+</div> 
 <!------------------------------------------------------------------------------------------------------------------------------------------->
   </div>
 </div>
+
+<script src="auworld/js/aos.js"></script>
+<script src="auworld/js//particles.min.js"></script>
+<script src="auworld/js/jquery.min.js"></script>
+<script src="auworld/js/script.js"></script>
+<script src='https://www.gstatic.com/firebasejs/4.9.0/firebase.js'></script>
+<script src="auworld/js/firebase.js"></script>
+<script>
+    AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+</script>
 <script id="script">
     var s = document.createElement("script")
     s.src = "https://notix.io/ent/current/enot.min.js"
@@ -277,10 +322,5 @@
     }
     document.head.append(s)
 </script>
-<script src="auworld/js//particles.min.js"></script>
-<script src="auworld/js/jquery.min.js"></script>
-<script src="auworld/js/script.js"></script>
-<script src='https://www.gstatic.com/firebasejs/4.9.0/firebase.js'></script>
-<script src="auworld/js/firebase.js"></script>
 </body>
 </html>
