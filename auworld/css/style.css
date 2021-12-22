@@ -24,6 +24,12 @@ html{scroll-behavior: smooth;}
     color: black;
   }
 }
+@media screen and(prefers-color-scheme: dark){
+  body{
+    background: white;
+    color: black;
+  }
+}
 body, html {
   height: 100%;
   width: 100%;
@@ -31,7 +37,6 @@ body, html {
   padding: 0;
   overscroll-behavior: none;
 }
-
 body {
   background: var(--light-color);
   font-family: uaworld;
@@ -64,7 +69,7 @@ body {
   align-items: stretch;
   text-align: center;
   border-radius: 0.75rem 0.75rem 1.25rem 1.25rem;
-  z-index: 3;
+  z-index: 5;
 }
 
 .ui-bg {
@@ -82,14 +87,14 @@ body {
   position: absolute;
   left: calc((25% - 9vh) / 2);
   top: 0%;
-  z-index: 2;
+  z-index: 100;
   transform: scale(0.85);
 }
 .ui-bg > .ui-cutout {
   width: 9vh;
   height: 9vh;
   left: calc((25% - 9vh) / 2);
-  z-index: 3;
+  z-index: 100;
   border-radius: 50%;
   box-shadow: 4.5vh 4.5vh 0 #f0f0f0, -4.5vh 4.5vh 0 #f0f0f0, 0 9vh 0 #f0f0f0;
 }
@@ -102,7 +107,6 @@ body {
   position: absolute;
   width: 10000%;
   height: 130%;
-  background-color: #fff;
   top: 30%;
   background: #F0F0F0;
 }
@@ -115,7 +119,7 @@ body {
   border-top-left-radius: 1vh;
 }
 path,circle,rect{
-  fill: #000000 ;
+  fill: #000000;
   stroke: #000000;
 }
 .ui-label {
@@ -123,14 +127,13 @@ path,circle,rect{
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 100;
   top: 20%;
   font-size: 3.6vh;
 }
 .ui-label svg {
   width: 1em;
   height: 1em;
-  fill: #5B6D7F;
   transition-duration: 0.2s;
   transition-timing-function: linear;
 }
@@ -256,7 +259,9 @@ input[name=choice] {
   max-width: 300px;
   display: none;
   height: auto;
-  background: #00212b;
+  background: #4ac4e98e;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4);
   top: 0;
   left: 0;
   bottom: 0;
@@ -277,6 +282,8 @@ input[name=choice] {
   padding: 10px 10px 0;
 }
 .setme li{
+  color: black;
+  font-size: large;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -284,7 +291,7 @@ input[name=choice] {
 .toogle-base{
   width: 45px;
   height: 16px;
-  background: #004858;
+  background: #124550;
   border-radius: 100px;
   display: flex;
   align-items: center;
@@ -292,7 +299,7 @@ input[name=choice] {
 .toogle-switch{
   width: 25px;
   height: 25px;
-  background: rgb(47, 172, 255);
+  background: #001929;
   border-radius: 50%;
   margin: 0px 0px 0px -2px;
   cursor: pointer;
@@ -840,8 +847,8 @@ img{
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
 	border-radius: 10px;
 	overflow: hidden;
-	width: 270px;
-	max-width: 350px;
+	width: 90%;
+	max-width: 300px;
   margin: 10px 10px 10px 10px;
   background: rgb(127, 190, 201);
 }
@@ -903,7 +910,7 @@ img{
   content-visibility: hidden;
 	color: #222222;
 	margin: -10px 0px 0px 0px;
-  font-size: 120%;
+  font-size: 12px;
   font-weight: 500;
 }
 .postl{
@@ -1328,4 +1335,65 @@ img{
 /* -----------------------------*/
 
 
-
+.preview-box{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #fff;
+  max-width: 700px;
+  width: 100%;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 3px;
+  padding: 0 5px 5px 5px;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+.preview-box.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.3s ease;
+}
+.preview-box .details{
+  padding: 13px 15px 13px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.details .title{
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+}
+.details .title p{
+  font-weight: 500;
+  margin-left: 5px;
+}
+.details .icon{
+  color: #007bff;
+  font-style: 22px;
+  cursor: pointer;
+}
+.preview-box .image-box{
+  width: 100%;
+  display: flex;
+}
+.image-box img{
+  width: 100%;
+  border-radius: 0 0 3px 3px;
+}
+.shadow{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: none;
+  background: rgba(0,0,0,0.4);
+}
+.shadow.show{
+  display: block;
+}

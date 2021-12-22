@@ -4,6 +4,7 @@ const header = document.querySelectorAll('.card-header img'),
  profile_img = document.querySelectorAll('.profile-img'),
  name = document.querySelectorAll('.name'),
  date = document.querySelectorAll('.date'),
+ postcard = document.querySelectorAll('.card'),
  card = document.querySelectorAll('.card-content'),
  postl = document.querySelectorAll('.postl'),
  nav2 = document.getElementById('ua-2'),
@@ -15,11 +16,17 @@ const header = document.querySelectorAll('.card-header img'),
  setoff = document.querySelector('.setoff'),
  loader = document.querySelector('.loader'),
  topost = document.querySelector('.f1_ab'),
- toabout = document.querySelector('.f2_ab')
+ toabout = document.querySelector('.f2_ab'),
+ download= document.querySelector(".download"),
  r1 = document.querySelector('#nav-1'),
  r2 = document.querySelector('#nav-2'),
  r3 = document.querySelector('#nav-3'),
- r4 = document.querySelector('#nav-4');
+ r4 = document.querySelector('#nav-4'),
+previewBox = document.querySelector(".preview-box"),
+categoryName = previewBox.querySelector(".title p"),
+previewImg = previewBox.querySelector("img"),
+closeIcon = previewBox.querySelector(".icon"),
+shadow = document.querySelector(".shadow");
       
 
 const animated_bgs = document.querySelectorAll('.animated-bg');
@@ -37,7 +44,7 @@ function getData() {
 	animated_bg_texts.forEach(bgs => { bgs.classList.remove('animated-bg-text') });
 }
 const filterItem = document.querySelector(".items");
-const filterImg = document.querySelectorAll(".post .card");
+const filterImg = document.querySelectorAll(".post .card ");
 
 anim.onclick = ()=>{
    inpu.forEach(bgs => { bgs.classList.add('in-pua') });
@@ -106,7 +113,9 @@ window.onload = ()=>{ //after window loaded
   document.querySelector('#app').style.display ='';
   document.querySelector('.fh').style.display ='none';
   Particles.init({selector: ".hsw"});
+
 }
+
 function onContextMenu(e){
     e.preventDefault();
     document.addEventListener('contextmenu', onContextMenu, false);
@@ -143,3 +152,22 @@ var particles = Particles.init({
     }
   ]
 });
+
+function preview(element){
+  header.onclick = (fullimg)=>{
+    header.setAttribute("onclick", "preview(this)"); //adding onclick attribute in all available images
+  //once user click on any image then remove the scroll bar of the body, so user can't scroll up or down
+  let selectedPrevImg = element.querySelector("img"); 
+  document.querySelector(".page2").style.overflow = "hidden";
+  let selectedImgCategory = element.getAttribute("data-name"); //getting user clicked image data-name value
+  previewImg.src = selectedPrevImg; //passing the user clicked image source in preview image source
+  categoryName.textContent = selectedImgCategory; //passing user clicked data-name value in category name
+  previewBox.classList.add("show"); //show the preview image box
+  shadow.classList.add("show"); //show the light grey background
+  closeIcon.onclick = ()=>{ //if user click on close icon of preview box
+    previewBox.classList.remove("show"); //hide the preview box
+    shadow.classList.remove("show"); //hide the light grey background
+    document.querySelector(".page2").style.overflow = "auto"; //show the scroll bar on body
+  }
+}
+}
