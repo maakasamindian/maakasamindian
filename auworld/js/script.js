@@ -2,7 +2,7 @@ const header = document.querySelectorAll('.card-header img'),
  title = document.querySelectorAll('.card-title'),
  excerpt = document.querySelectorAll('.card-excerpt span'),
  profile_img = document.querySelectorAll('.profile-img'),
- name = document.querySelectorAll('.name'),
+ name = document.querySelectorAll('.publisher'),
  date = document.querySelectorAll('.date'),
  postcard = document.querySelectorAll('.card'),
  card = document.querySelectorAll('.card-content'),
@@ -18,7 +18,7 @@ const header = document.querySelectorAll('.card-header img'),
  topost = document.querySelector('.f1_ab'),
  toabout = document.querySelector('.f2_ab'),
  download= document.querySelector(".download"),
- r1 = document.querySelector('#nav-1'),
+ page1 = document.querySelector('.page1'),
  r2 = document.querySelector('#nav-2'),
  r3 = document.querySelector('#nav-3'),
  r4 = document.querySelector('#nav-4'),
@@ -26,7 +26,12 @@ previewBox = document.querySelector(".preview-box"),
 categoryName = previewBox.querySelector(".title p"),
 previewImg = previewBox.querySelector("img"),
 closeIcon = previewBox.querySelector(".icon"),
-shadow = document.querySelector(".shadow");
+shadow = document.querySelector(".shadow"),
+searchWrapper = document.querySelector(".search"),
+inputBox = searchWrapper.querySelector("input"),
+profilescreen = document.querySelector(".profile-screen"),
+link = document.querySelectorAll(".prolink a"),
+suggBox = searchWrapper.querySelector(".autocom-box");
       
 
 const animated_bgs = document.querySelectorAll('.animated-bg');
@@ -68,7 +73,9 @@ function alertrc() {
 function hide() {
   loader.classList.add('hide');
 }
-
+link.onclick = ()=>{
+  profilescreen.classList.add('show');
+}
 topost.onclick = ()=> {
   setTimeout(getData, 2500);
 }
@@ -88,7 +95,8 @@ setoff.onclick = ()=>{
   setting.classList.add('hide');
   setting.classList.remove('display');
 }
-window.onload = ()=>{ //after window loaded
+
+window.onload= ()=>{ //after window loaded
   filterItem.onclick = (selectedItem)=>{ //if user click on filterItem div
     if(selectedItem.target.classList.contains("item")){ //if user selected item has .item class
       filterItem.querySelector(".active").classList.remove("active"); //remove the active class which is in first item
@@ -108,14 +116,27 @@ window.onload = ()=>{ //after window loaded
       });
     }
   }
+  Particles.init({selector: ".hsw"});
   loader.style.display = 'flex';
-  setTimeout(hide,4800);
   document.querySelector('#app').style.display ='';
   document.querySelector('.fh').style.display ='none';
-  Particles.init({selector: ".hsw"});
-
+  link.forEach(bgs => { bgs.setAttribute("target", "profile-screen"); });
+  for(let i = 0; i < link.length; i++){
+    link[i].onclick = () =>{
+      profilescreen.classList.add('show');
+      profilescreen.classList.remove('hide');
+      document.querySelector(".close").classList.add('show');
+      document.querySelector(".close").classList.remove('hide');
+    }
+  }
 }
-
+document.querySelector(".close").onclick = ()=>{
+    document.querySelector(".close").classList.remove('show');
+    document.querySelector(".close").classList.add('hide');
+    profilescreen.classList.remove('show');
+    profilescreen.classList.add('hide');
+}
+setTimeout(hide,4800);
 function onContextMenu(e){
     e.preventDefault();
     document.addEventListener('contextmenu', onContextMenu, false);
@@ -153,9 +174,7 @@ var particles = Particles.init({
   ]
 });
 
-function preview(element){
-  header.onclick = (fullimg)=>{
-    header.setAttribute("onclick", "preview(this)"); //adding onclick attribute in all available images
+function preview(element){ //adding onclick attribute in all available images
   //once user click on any image then remove the scroll bar of the body, so user can't scroll up or down
   let selectedPrevImg = element.querySelector("img"); 
   document.querySelector(".page2").style.overflow = "hidden";
@@ -170,4 +189,98 @@ function preview(element){
     document.querySelector(".page2").style.overflow = "auto"; //show the scroll bar on body
   }
 }
+
+(function(){
+  
+  var searchFilter = {
+    options: { valueNames: ['name'] },
+    init: function() {
+      var userList = new List('people-list', this.options);
+      var noItems = $('<div class="error-page"><div><h1 data-h1="404">404</h1><p data-p="NOT FOUND">NOT FOUND</p><h3 style="margin: 0;color: #8f8f8f;">try another keyword</h3></div></div>');
+      
+      userList.on('updated', function(list) {
+        if (list.matchingItems.length === 0) {
+          $(list.list).append(noItems);
+        } else {
+          noItems.detach();
+        }
+      });
+    }
+  };
+  
+  searchFilter.init();
+  
+})();
+
+
+
+
+// if user press any key and release
+inputBox.onkeyup = (e)=>{
+    let userData = e.target.value; //user enetered data
+    let emptyArray = [];
+    if(userData){
+        emptyArray = suggestions.filter((data)=>{
+            //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
+            return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+        });
+        emptyArray = emptyArray.map((data)=>{
+            // passing return data inside li tag
+            return data = `<li>${data}</li>`;
+        });
+        searchWrapper.classList.add("active"); //show autocomplete box
+        showSuggestions(emptyArray);
+        let allList = suggBox.querySelectorAll("li");
+        for (let i = 0; i < allList.length; i++) {
+        allList[i].setAttribute("onclick", "select(this)")}
+    }else{
+        searchWrapper.classList.remove("active");//hide autocomplete box
+    }
+    
 }
+
+function select(element){
+    let selectData = element.textContent;
+    inputBox.value = selectData;
+    searchWrapper.classList.remove("active");
+}
+
+function showSuggestions(list){
+    let listData;
+    if(!list.length){
+        userValue = inputBox.value;
+        listData = `<li>${userValue}</li>`;
+    }else{
+      listData = list.join('');
+    }
+    suggBox.innerHTML = listData;
+}
+let suggestions = [
+    "ujjwal",
+    "minions",
+    "background",
+    "cute",
+    "song",
+    "blue",
+    "yellow",
+    "awesome",
+    "Bollywood",
+    "Vlogger",
+    "Vechiles",
+    "Facebook",
+    "Freelancer",
+    "Facebook Page",
+    "Designer",
+    "Developer",
+    "Web Designer",
+    "Web Developer",
+    "Login Form in HTML & CSS",
+    "How to learn HTML & CSS",
+    "How to learn JavaScript",
+    "How to become Freelancer",
+    "How to become Web Designer",
+    "How to start Gaming Channel",
+    "How to start YouTube Channel",
+    "What does HTML stands for?",
+    "What does CSS stands for?",
+];
