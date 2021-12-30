@@ -4,8 +4,11 @@
         display: none;
     }
     .hs-features{
-    justify-content: space-between;
-}
+        justify-content: space-between;
+    }
+    .f1_ab.close.show{
+        margin-left: calc(100% / 4) !important;
+    }
 }
 @media screen and (min-width:400px){
    .welcome{
