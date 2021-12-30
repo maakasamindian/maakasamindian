@@ -3,6 +3,7 @@ const header = document.querySelectorAll('.card-header img'),
  excerpt = document.querySelectorAll('.card-excerpt span'),
  profile_img = document.querySelectorAll('.profile-img'),
  name = document.querySelectorAll('.publisher'),
+ image = document.querySelectorAll('.image'),
  date = document.querySelectorAll('.date'),
  postcard = document.querySelectorAll('.card'),
  card = document.querySelectorAll('.card-content'),
@@ -15,7 +16,7 @@ const header = document.querySelectorAll('.card-header img'),
  seton = document.querySelector('.seton'),
  setoff = document.querySelector('.setoff'),
  loader = document.querySelector('.loader'),
- topost = document.querySelector('.f1_ab'),
+ topost = document.querySelector(".f1_ab"),
  toabout = document.querySelector('.f2_ab'),
  download= document.querySelector(".download"),
  page1 = document.querySelector('.page1'),
@@ -23,10 +24,8 @@ const header = document.querySelectorAll('.card-header img'),
  r3 = document.querySelector('#nav-3'),
  r4 = document.querySelector('#nav-4'),
 previewBox = document.querySelector(".preview-box"),
-categoryName = previewBox.querySelector(".title p"),
-previewImg = previewBox.querySelector("img"),
-closeIcon = previewBox.querySelector(".icon"),
-shadow = document.querySelector(".shadow"),
+previewimg = previewBox.querySelector("img"),
+previewdetail= previewBox.querySelector(".img-detail"),
 searchWrapper = document.querySelector(".search"),
 inputBox = searchWrapper.querySelector("input"),
 profilescreen = document.querySelector(".profile-screen"),
@@ -76,9 +75,7 @@ function hide() {
 link.onclick = ()=>{
   profilescreen.classList.add('show');
 }
-topost.onclick = ()=> {
-  setTimeout(getData, 2500);
-}
+
 toabout.onclick = ()=>{
   inpu.forEach(bgs => { bgs.classList.add('in-pua') });
 }
@@ -116,6 +113,9 @@ window.onload= ()=>{ //after window loaded
       });
     }
   }
+  topost.onclick = ()=> {
+  setTimeout(getData, 2500);
+  }
   Particles.init({selector: ".hsw"});
   loader.style.display = 'flex';
   document.querySelector('#app').style.display ='';
@@ -123,8 +123,22 @@ window.onload= ()=>{ //after window loaded
   link.forEach(bgs => { bgs.setAttribute("target", "profile-screen"); });
   for(let i = 0; i < link.length; i++){
     link[i].onclick = () =>{
+      let datalink = link[i].getAttribute("data-link");
+      profilescreen.setAttribute("src", datalink);
       profilescreen.classList.add('show');
       profilescreen.classList.remove('hide');
+      document.querySelector(".close").classList.add('show');
+      document.querySelector(".close").classList.remove('hide');
+    }
+  }
+  for(let i = 0; i < image.length; i++){
+    image[i].onclick = () =>{
+      let dataimage = image[i].getAttribute("src");
+      let imagedetail = image[i].getAttribute("title");
+      previewimg.setAttribute("src", dataimage);
+      previewdetail.innerHTML = imagedetail;
+      previewBox.classList.add('show');
+      previewBox.classList.remove('hide');
       document.querySelector(".close").classList.add('show');
       document.querySelector(".close").classList.remove('hide');
     }
@@ -135,6 +149,8 @@ document.querySelector(".close").onclick = ()=>{
     document.querySelector(".close").classList.add('hide');
     profilescreen.classList.remove('show');
     profilescreen.classList.add('hide');
+    previewBox.classList.add('hide');
+      previewBox.classList.remove('show');
 }
 setTimeout(hide,4800);
 function onContextMenu(e){
@@ -143,7 +159,6 @@ function onContextMenu(e){
     setTimeout(alertrc, 0);
 }
 document.addEventListener('contextmenu', onContextMenu, false);
-
 var myDate = new Date();
     var hrs = myDate.getHours();
 
@@ -284,3 +299,9 @@ let suggestions = [
     "What does HTML stands for?",
     "What does CSS stands for?",
 ];
+AOS.init({
+  duration: 400,
+  delay: 0,
+  easing: 'ease-in-out-sine'
+});
+    
