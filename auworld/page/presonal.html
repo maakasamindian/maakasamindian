@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>presonal page</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="../icon/ionicons.min.css">
+<link rel="stylesheet" type="text/css" href="../css/pattern-lock.min.css">
+<link rel="stylesheet" type="text/css" href="../css/layout.css">
+<link rel="stylesheet" type="text/css" href="../css/animate.min.css">
+<link rel="icon" type="image/png" href="../img/au.png">
+</head>
+<body>
+<div class="mhn-ui-wrap">
+	<div class="mhn-ui-page page-lock">
+		<div class="mhn-lock-wrap">
+			<div class="mhn-lock-title" data-title="Draw a pattern to unlock"></div>
+			<div class="mhn-lock"></div>
+		</div>
+	</div>
+
+	<div class="mhn-ui-page page-home">
+		<div class="mhn-ui-app-time">&nbsp;</div>
+		<div class="mhn-ui-row mhn-ui-apps">
+           <div class="app">
+               <a href="https://bit.ly/seeupme">my pics</a>
+           </div>
+           <div class="app">
+               <a href="https://bit.ly/oldpdfs">pdfs</a>
+           </div>
+           <div class="app s">
+               <a href="">secret</a>
+           </div>
+		</div>
+		<div class="mhn-ui-bottom-link-bar">
+			<span class="mhn-ui-bottom-btn ion-ios-home"></span>
+			<span class="mhn-ui-bottom-btn ion-ios-locked" onclick="mhnUI.page.show('page-lock')"></span>
+		</div>
+	</div>
+
+<div class="mhn-ui-bottom-link-bar">
+	<a class="mhn-ui-bottom-btn ion-ios-home" href="/index.html" ></a>
+	<span class="mhn-ui-bottom-btn ion-ios-locked" onclick="mhnUI.page.show('page-lock')"></span>
+</div>
+	</div>
+	<div class="mhn-ui-dialog-wrap">
+		<div class="mhn-ui-dialog">
+			<div class="mhn-ui-dialog-title">Are you sure?</div>
+			<p>This application wants to open an external link. To confirm, please click on yes button.</p>
+			<a data-action="confirm" class="mhn-ui-dialog-btn" target="_blank">Yes</a>
+			<a data-action="cancel" class="mhn-ui-dialog-btn">No</a>
+		</div>
+	</div>
+</div>
+<script src="../js/patt-jquery.min.js"></script>
+<script src="../js/pattern-lock.min.js"></script>
+<script src="../js/presonal.js"></script>
+<script>mhnUI.setup();</script>
+</body>
+</html>

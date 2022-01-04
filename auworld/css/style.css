@@ -7,6 +7,7 @@
 *, *:before, *:after {
   position: relative;
   box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.3, 0.33, 0.74, 0.76);
 }
 @font-face {
   font-family: uaworld;
@@ -255,6 +256,7 @@ input[name=choice] {
 }
 #darkmode:checked ~ * .profile-bio,
 #darkmode:checked ~ * .dmwhite,
+#darkmode:checked ~ * .smss,
 #darkmode:checked ~ * .setme li,
 #darkmode:checked ~ * .setoff p,
 #darkmode:checked ~ * .contact-detail{
@@ -273,6 +275,11 @@ input[name=choice] {
   background:#00000059;
   box-shadow: inset -3px -3px 7px #000000, inset -1px -1px 6px #000000;
   color: white;
+}
+#darkmode:checked ~ * .contact-form-submit{
+  background:#bbbcc0;
+  box-shadow: -1px -1px 7px #6b6969, 3px 3px 6px #000000;
+  color: rgb(0, 0, 0);
 }
 /* ---------------------------------- */
 .setting{
@@ -1156,7 +1163,9 @@ img{
   margin: 10px;
 }
 .contact-form-submit{
-  background: radial-gradient(circle at top left,#00edff, #ef00ff);
+  background: #a0c9dd;
+  box-shadow: -3px -3px 3px 1px #ffffff,
+              2px 2px 5px #000000;
   border: none;
   height: 5vh;
   width:50%;
@@ -1212,14 +1221,13 @@ img{
 }
 .search.active .autocom-box{
   display: flex;
-  animation: slow 0.3s cubic-bezier(0.39, 0.43, 0.51, 0.56);
+  animation: slow 0.3s ease;
 }
 .search.active .filt{
   display: none;
 }
 @keyframes slow{
     0%{ max-height: 0vh;}
-   50%{ max-height:15vh;}
   100%{ max-height:30vh;}
 }
 .autocom-box li{

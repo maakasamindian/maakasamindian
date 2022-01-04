@@ -20,6 +20,7 @@ const header = document.querySelectorAll('.card-header img'),
  toabout = document.querySelector('.f2_ab'),
  download= document.querySelector(".download"),
  page1 = document.querySelector('.page1'),
+ r1 = document.querySelector('#nav-4'),
  r2 = document.querySelector('#nav-2'),
  r3 = document.querySelector('#nav-3'),
  r4 = document.querySelector('#nav-4'),
@@ -54,17 +55,29 @@ anim.onclick = ()=>{
    inpu.forEach(bgs => { bgs.classList.add('in-pua') });
    setting.classList.add('hide');
   setting.classList.remove('display');
+  document.querySelector(".page3").classList.add('acton');
+  document.querySelector(".page1").classList.remove('acton');
+  document.querySelector(".page2").classList.remove('acton');
+  document.querySelector(".page4").classList.remove('acton');
 }
 nav2.onclick = ()=>{
   inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
   setTimeout(getData, 2500);
   setting.classList.add('hide');
   setting.classList.remove('display');
+  document.querySelector(".page2").classList.add('acton');
+  document.querySelector(".page1").classList.remove('acton');
+  document.querySelector(".page3").classList.remove('acton');
+  document.querySelector(".page4").classList.remove('acton');
 }
 nav1.onclick = ()=>{
   inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
   setting.classList.add('hide');
   setting.classList.remove('display');
+  document.querySelector(".page1").classList.add('acton');
+  document.querySelector(".page2").classList.remove('acton');
+  document.querySelector(".page3").classList.remove('acton');
+  document.querySelector(".page4").classList.remove('acton');
 }
 function alertrc() {
   alert('right click is disable!!');
@@ -83,6 +96,10 @@ nav4.onclick = ()=>{
 inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
 setting.classList.add('hide');
 setting.classList.remove('display');
+document.querySelector(".page4").classList.add('acton');
+  document.querySelector(".page2").classList.remove('acton');
+  document.querySelector(".page3").classList.remove('acton');
+  document.querySelector(".page1").classList.remove('acton');
 }
 seton.onclick = ()=>{
   setting.classList.add('display');
@@ -121,16 +138,6 @@ window.onload= ()=>{ //after window loaded
   document.querySelector('#app').style.display ='';
   document.querySelector('.fh').style.display ='none';
   link.forEach(bgs => { bgs.setAttribute("target", "profile-screen"); });
-  for(let i = 0; i < link.length; i++){
-    link[i].onclick = () =>{
-      let datalink = link[i].getAttribute("data-link");
-      profilescreen.setAttribute("src", datalink);
-      profilescreen.classList.add('show');
-      profilescreen.classList.remove('hide');
-      document.querySelector(".close").classList.add('show');
-      document.querySelector(".close").classList.remove('hide');
-    }
-  }
   for(let i = 0; i < image.length; i++){
     image[i].onclick = () =>{
       let dataimage = image[i].getAttribute("src");
@@ -151,6 +158,12 @@ document.querySelector(".close").onclick = ()=>{
     profilescreen.classList.add('hide');
     previewBox.classList.add('hide');
       previewBox.classList.remove('show');
+}
+document.querySelector(".homedp").onclick = ()=>{
+    document.querySelector(".close").classList.remove('hide');
+    document.querySelector(".close").classList.add('show');
+    profilescreen.classList.remove('hide');
+    profilescreen.classList.add('show');
 }
 setTimeout(hide,4800);
 function onContextMenu(e){
