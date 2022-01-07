@@ -64,7 +64,7 @@ anim.onclick = ()=>{
 }
 nav2.onclick = ()=>{
   inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
-  setTimeout(getcardData, 2500);
+  header.setAttribute("ujjwal");
   setting.classList.add('hide');
   setting.classList.remove('display');
   document.querySelector(".page2").classList.add('acton');
