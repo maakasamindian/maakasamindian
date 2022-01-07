@@ -114,24 +114,7 @@ function getdata(){
 			"</div></div></div></div>"+posts_div.innerHTML
       ;}
     });
-}
-
- const header = document.querySelectorAll('.card-header img'),
- title = document.querySelectorAll('.card-title'),
- excerpt = document.querySelectorAll('.card-excerpt span'),
- profile_img = document.querySelectorAll('.profile-img'),
- name = document.querySelectorAll('.publisher'),
- app = document.getElementById("darkmode"),
- image = document.querySelectorAll('.image'),
- date = document.querySelectorAll('.date'),
- postcard = document.querySelectorAll('.card'),
- card = document.querySelectorAll('.card-content'),
- postl = document.querySelectorAll('.postl');
-
-const animated_bgs = document.querySelectorAll('.animated-bg');
-const animated_bg_texts = document.querySelectorAll('.animated-bg');
-
-function getcardData() {
+	
 	header.forEach(bgs => { bgs.style.opacity='1',bgs.style.animation= 'show 0.4s ease' });
 	title.forEach(bgs => { bgs.classList.add('visi')});
 	excerpt.forEach(bgs => { bgs.classList.add('visi')});
@@ -142,3 +125,5 @@ function getcardData() {
 	animated_bgs.forEach(bgs => { bgs.classList.remove('animated-bg') });
 	animated_bg_texts.forEach(bgs => { bgs.classList.remove('animated-bg-text') });
 }
+
+
