@@ -76,7 +76,7 @@ function upload(){
 function getdata(){
     firebase.database().ref('blogs/').once('value').then(function(snapshot){
       //get your posts div
-      var posts_div=document.getElementById('post');
+      var posts_div=document.getElementById('people-list');
       //remove all remaining data in that div
       posts_div.innerHTML="";
       //get data from firebase
@@ -86,7 +86,25 @@ function getdata(){
       //we have to pass our data to for loop to get one by one
       //we are passing the key of that post to delete it from database
       for(let[key,value] of Object.entries(data)){
-        posts_div.innerHTML= 
+        posts_div.innerHTML=
+		"<div class='post list' id='post'>"+
+		 " <div class='search'>"+
+   "<div clas'='fool'>"+
+    "<input type='text' placeholder='search...'>"+
+   " <div class='autocom-box'>"+
+    "</div>"+
+ " </div>"+
+    "<nav class='filt'>"+
+        "<div class='items'>"+
+         " <span class='item active' data-name='all'>All</span>"+
+         " <span class='item' data-name='nature'>nature</span>"+
+          "<span class='item' data-name='fact'>facts</span>"+
+          "<span class='item' data-name='meme'>memes</span>"+
+          "<span class='item' data-name='video'>videos</span>"+
+         " <span class='item' data-name='animated'>animated</span>"+
+       " </div>"+
+     " </nav>"+
+   " </div>"+
           "<div class='card' data-name='"+value.postdanameau+"'>"+
           "<div class='name' style='display:none;'>"+value.postkeyowrdsau+"</div>"+
 	      "<div class='card-header animated-bg'>"+
@@ -111,7 +129,7 @@ function getdata(){
 		  "<div class='author-info'>"+
 	      "<strong class='animated-bg animated-bg-text publisher dmwhite'  style='color: #026992;'>&nbsp;</strong>"+
 		  "<small class='animated-bg animated-bg-text date dmwhite' style='content-visibility: hidden;'>"+value.postdateau+"</small>"+
-			"</div></div></div></div>"+posts_div.innerHTML
+			"</div></div></div></div></div>"+posts_div.innerHTML
       ;}
     });
 	
