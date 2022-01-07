@@ -69,9 +69,8 @@ function upload(){
 
 }
 
-window.onload=function(){
     this.getdata();
-}
+
 
 
 function getdata(){
