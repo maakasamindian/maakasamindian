@@ -1,8 +1,10 @@
-const header = document.querySelectorAll('.card-header img'),
+const 
+header = document.querySelectorAll('.card-header img'),
  title = document.querySelectorAll('.card-title'),
  excerpt = document.querySelectorAll('.card-excerpt span'),
  profile_img = document.querySelectorAll('.profile-img'),
  name = document.querySelectorAll('.publisher'),
+ app = document.getElementById("darkmode"),
  image = document.querySelectorAll('.image'),
  date = document.querySelectorAll('.date'),
  postcard = document.querySelectorAll('.card'),
@@ -37,7 +39,7 @@ suggBox = searchWrapper.querySelector(".autocom-box");
 const animated_bgs = document.querySelectorAll('.animated-bg');
 const animated_bg_texts = document.querySelectorAll('.animated-bg');
 
-function getData() {
+function getcardData() {
 	header.forEach(bgs => { bgs.style.opacity='1',bgs.style.animation= 'show 0.4s ease' });
 	title.forEach(bgs => { bgs.classList.add('visi')});
 	excerpt.forEach(bgs => { bgs.classList.add('visi')});
@@ -62,7 +64,7 @@ anim.onclick = ()=>{
 }
 nav2.onclick = ()=>{
   inpu.forEach(bgs => { bgs.classList.remove('in-pua') });
-  setTimeout(getData, 2500);
+  setTimeout(getcardData, 2500);
   setting.classList.add('hide');
   setting.classList.remove('display');
   document.querySelector(".page2").classList.add('acton');
@@ -109,7 +111,9 @@ setoff.onclick = ()=>{
   setting.classList.add('hide');
   setting.classList.remove('display');
 }
-
+topost.onclick = ()=> {
+  setTimeout(getcardData, 2500);
+}
 window.onload= ()=>{ //after window loaded
   filterItem.onclick = (selectedItem)=>{ //if user click on filterItem div
     if(selectedItem.target.classList.contains("item")){ //if user selected item has .item class
@@ -129,9 +133,6 @@ window.onload= ()=>{ //after window loaded
         }
       });
     }
-  }
-  topost.onclick = ()=> {
-  setTimeout(getData, 2500);
   }
   Particles.init({selector: ".hsw"});
   loader.style.display = 'flex';
@@ -159,6 +160,7 @@ document.querySelector(".close").onclick = ()=>{
     previewBox.classList.add('hide');
       previewBox.classList.remove('show');
 }
+
 document.querySelector(".homedp").onclick = ()=>{
     document.querySelector(".close").classList.remove('hide');
     document.querySelector(".close").classList.add('show');
@@ -312,9 +314,3 @@ let suggestions = [
     "What does HTML stands for?",
     "What does CSS stands for?",
 ];
-AOS.init({
-  duration: 400,
-  delay: 0,
-  easing: 'ease-in-out-sine'
-});
-    

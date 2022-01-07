@@ -30,7 +30,8 @@ body {
 }
 a {
     color: inherit;
-    text-decoration: none
+    text-decoration: none;
+    display: block;
 }
 a:hover {
     text-decoration: underline
@@ -40,8 +41,9 @@ a:hover {
     height: 100vh;
     overflow: hidden;
     position: relative;
-    background: #012141;
-    background-size: 55%;
+    background:url(../img/mlfb.jpg), linear-gradient(cyan,rgb(0, 59, 99),rgb(81, 175, 179));
+    background-size: cover;
+    background-position: center;
     box-shadow: 0 17px 50px 0 rgba(0, 0, 0, .19), 0 12px 15px 0 rgba(0, 0, 0, .24)
 }
 .mhn-ui-wrap:before {
@@ -57,12 +59,6 @@ a:hover {
     color: #eee;
     z-index: 100;
     position: relative
-}
-.mhn-ui-apps{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 .app{
     margin: 10px 0px ;
@@ -283,11 +279,13 @@ a:hover {
     cursor: pointer;
     line-height: 55px;
     text-align: center;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, .3);
+    border-radius: 100%;
+    background: radial-gradient(circle at top left, #ff00f7, #051795);
     transition: background .4s ease-in-out 0s;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, .5) inset
+    box-shadow: inset 6px 2px 5px rgb(5 0 20),
+                5px 1px 7px rgb(5 0 20);
 }
+
 .mhn-ui-icon .mhn-ui-icon-title {
     margin-top: 5px;
     cursor: default;
@@ -325,12 +323,19 @@ a:hover {
     display: none;
     z-index: 1000;
     position: absolute;
-    background: rgba(0, 0, 0, .7)
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(2px);
 }
 .mhn-ui-dialog {
-    padding: 15px;
-    background: #000;
-    margin: 50% 0 auto
+    padding: 10px;
+    background: radial-gradient(circle at top left,rgb(255, 0, 106),rgb(220, 60, 20));
+    margin: auto 10px auto;
+    top: calc(50% - 100px);
+    left: 0;
+    right: 0;
+    position: relative;
+    border-radius: 10px;
+    max-width: 400px;
 }
 .mhn-ui-dialog .mhn-ui-dialog-title {
     font-size: 18px;
@@ -339,6 +344,7 @@ a:hover {
 .mhn-ui-dialog .mhn-ui-dialog-btn {
     padding: 5px;
     min-width: 65px;
+    border-radius: 20px;
     cursor: pointer;
     margin-right: 10px;
     text-align: center;
@@ -400,4 +406,66 @@ a:hover {
 }
 .mhn-ui-credit-list .mhn-ui-credit:nth-child(5) {
     animation: fadeInUp .8s
+}
+.page-Portfolio{
+  background: #ccc;
+  overflow:scroll;
+}
+.page-Portfolio .mhn-ui-bottom-link-bar{
+  bottom: 0;
+  color: black;
+  position: static;
+}
+.contact-fm{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.contact-form{
+  outline: 0;
+  height: 40px;
+  background: #ffffff59;
+  width: 90%;
+  max-width: 500px;
+  border-bottom: solid 0px cyan;
+  color: rgb(0, 20, 26);
+  cursor: text;
+  font-size: 17px;
+  box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #787878;
+  margin: 10px 0px 10px 0px;
+  padding: 1px 2px;
+  padding: 0px 14px;
+  border-radius: 49px;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  font-family: 'uaworld';
+}
+.contact-form-submit:hover,.contact-form-submit:active{
+  box-shadow: -3px -3px 3px 1px #ffffff inset,
+              2px 2px 5px #000000 inset;
+}
+.text{
+  height: 110px;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+.contact-detail{
+  border: solid 1px cyan; 
+  color:black;
+  border-radius: 10px;
+  background: rgba(0, 255, 255, 0.226);
+  padding:10px;
+  margin: 10px;
+}
+.contact-form-submit{
+  background: #a0c9dd;
+  box-shadow: -3px -3px 3px 1px #ffffff,
+              2px 2px 5px #000000;
+  border: none;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
 }

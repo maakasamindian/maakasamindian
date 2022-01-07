@@ -46,7 +46,9 @@ body {
   margin: 0;
   padding: 0;
 }
-
+::selection{
+  background: rgba(255, 0, 51, 0.808);
+}
 ::-webkit-scrollbar{
   display: none;
 }
@@ -834,12 +836,14 @@ img{
 }
 .profile-screen{
   position: fixed;
-  height: 78vh;
-  width: calc(100% - 30px);
-  margin: 15px;
+  height: 80vh;
+  width: calc(100% - 10px);
+  max-width: 400px;
+  margin: 5px;
   border-radius: 20px;
   border: none;
   z-index: 2;
+  backdrop-filter: blur(10px);
 }
 .loader{
   top: 0;
@@ -1138,7 +1142,7 @@ img{
   border-bottom: solid 0px cyan;
   color: rgb(0, 20, 26);
   cursor: text;
-  font-size: 2.6vh;
+  font-size: 17px;
   box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #787878;
   margin: 10px 0px 10px 0px;
   padding: 1px 2px;
@@ -1150,7 +1154,7 @@ img{
   font-family: 'uaworld';
 }
 .text{
-  height: 20vh;
+  height: 110px;
   border-radius: 20px;
   padding: 5px 10px;
 }
@@ -1167,10 +1171,14 @@ img{
   box-shadow: -3px -3px 3px 1px #ffffff,
               2px 2px 5px #000000;
   border: none;
-  height: 5vh;
+  height: 30px;
   width:50%;
   max-width: 100px;
   border-radius: 20px;
+}
+#darkmode:checked ~ * .contact-form-submit:hover,.contact-form-submit:hover,.contact-form-submit:active{
+  box-shadow: -3px -3px 3px 1px #ffffff inset,
+              2px 2px 5px #000000 inset;
 }
 .search{
   position: sticky;
@@ -1188,7 +1196,7 @@ img{
 .search input{
   width: 95%;
   max-width: 600px;
-  height: 6vh;
+  height: 33px;
   border-radius: 20px;
   border: none;
   margin: 5px;
@@ -1202,7 +1210,7 @@ img{
   padding: 2px 10px;
   width: 95%;
   max-width: 600px;
-  max-height: 30vh;
+  max-height: 150px;
   overflow-y: scroll;
   border-radius: 20px;
 }
